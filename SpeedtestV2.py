@@ -1,4 +1,4 @@
-#Versão 1.3 - 10/06/2020 - 17:20
+#Versão 1.3 - 10/06/2020 - 15:20
 
 import speedtest
 from datetime import datetime
