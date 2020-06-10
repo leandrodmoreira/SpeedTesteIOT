@@ -1,0 +1,10 @@
+import speedtest
+import csv
+
+speedtester = speedtest.Speedtest()
+speedtester.get_best_server()
+
+# Create a file
+
+
+

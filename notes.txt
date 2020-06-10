@@ -1,0 +1,4 @@
+py -m pip install speedtest-cli
+
+Python Path: C:\Users\leand\AppData\Local\Programs\Python\Python38-32
+
