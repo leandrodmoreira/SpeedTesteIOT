@@ -39,7 +39,7 @@ while True:
     # Connect to the database
     connection = pymysql.connect(host='192.168.0.38',
                              user='root',
-                             password='xxxxxxx',
+                             password='Wall@1979',
                              db='homeiot',
                              cursorclass=pymysql.cursors.DictCursor)
 

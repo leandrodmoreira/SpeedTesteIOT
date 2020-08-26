@@ -2,3 +2,13 @@ py -m pip install speedtest-cli
 
 Python Path: C:\Users\leand\AppData\Local\Programs\Python\Python38-32
 
+Instalador do conector MySql para Python
+python3 -m pip install PyMySQL
+
+
+Instalador do conector do MySql para Windows / Power BI
+https://community.powerbi.com/t5/Power-Query/Trying-to-connect-to-MY-SQL-from-Power-BI/m-p/195482#M10931
+
+Cadeia de conexão primária:
+
+HostName=IoT2HomeHost1.azure-devices.net;DeviceId=Iot2HomeHost01;SharedAccessKey=lYTJCzIDGO9szN/1PAg9G7ittbixh53KWcQyfOKBpAM=
