@@ -1,0 +1,2 @@
+host, user, password, db
+192.168.0.38, root, Wall@1979, homeiot

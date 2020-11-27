@@ -2,6 +2,7 @@
 import speedtest
 from datetime import datetime
 import time
+import csv
 import pymysql.cursors
 
 speed = speedtest.Speedtest()
@@ -9,43 +10,51 @@ speed.get_best_server()
 
 #Criação das variáveis
 now = datetime.now()
+
+file = open('Log_SpeedTest.csv','a')
+
 timestamp =  now.strftime('%Y-%m-%d %H:%M')
-hosty = 1
+print("Date/Time:")
+print(timestamp)
+
+host = 1
+print("Host:")
+print(host)
+
 download = repr(round(speed.download() / 1000 / 1000, 1))
 upload = repr(round(speed.upload () / 1000 / 1000, 1))
 
-
 downloadComma = download.replace(".",",")
+print("Download:")
+print(downloadComma)
 uploadComma = upload.replace(".",",")
-
-#Lendo configurações do arquivo
-
-ref_arquivo = open("/home/leandro/Documents/Dev/Velocidade/dbconfig.txt","r")
-
-for linha in ref_arquivo:
-    valores = linha.split()
-    host = valores[0].replace(",","")
-    user = valores[1].replace(",","")
-    password = valores[2].replace(",","")
-    db = valores[3].replace(",","")
-
-ref_arquivo.close()
+print("Upload:")
+print(uploadComma)
 
 #Gravando dados no banco de dados
-connection = pymysql.connect(host=host,
-                             user=user,
-                             password=password,
-                             db=db,
+
+file2 = open('secret.txt','r')
+secret = file2.read()
+print (secret)
+
+# Connect to the database
+connection = pymysql.connect(host='192.168.0.38',
+                             user='root',
+                             password=secret,
+                             db='homeiot',
                              cursorclass=pymysql.cursors.DictCursor)
 
 try:
     with connection.cursor() as cursor:
         sql = "INSERT INTO `iot_speedtest` (`timestamp`, `host` , `download` , `upload`) VALUES (%s, %s, %s, %s)"
-        cursor.execute(sql, (now, hosty, downloadComma, uploadComma))
+        cursor.execute(sql, (now, host, downloadComma, uploadComma))
+
     connection.commit()
 
 finally:
     connection.close()
+
+file2.close()
 
 #Gravando dados no arquivo de log
 reader = "Timestamp, Download(Mbs), Upload(Mbps) \n"
@@ -53,6 +62,11 @@ reader = "Timestamp, Download(Mbs), Upload(Mbps) \n"
 textoBruto = now.strftime('%Y-%m-%d %H:%M') + ';' + download + ';' + upload + "\n"
 
 texto = textoBruto.replace(".",",")
+
+#file.write(reader)
+file.write(texto)
+
+file.close()
 
 print("Valor armazenado no banco de dados:")
 print(texto)

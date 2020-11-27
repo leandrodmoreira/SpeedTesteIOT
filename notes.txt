@@ -1,4 +1,6 @@
-py -m pip install speedtest-cli
+Instalador do speedtest pelo pip para Python3
+pip3 install speedtest-cli
+
 
 Python Path: C:\Users\leand\AppData\Local\Programs\Python\Python38-32
 
@@ -12,3 +14,35 @@ https://community.powerbi.com/t5/Power-Query/Trying-to-connect-to-MY-SQL-from-Po
 Cadeia de conexão primária:
 
 HostName=IoT2HomeHost1.azure-devices.net;DeviceId=Iot2HomeHost01;SharedAccessKey=lYTJCzIDGO9szN/1PAg9G7ittbixh53KWcQyfOKBpAM=
+
+CRONTAB
+
+#0,10,20,30,40,50 * * * * /home/pi/Public/Dev/Speed/cron.py
+#0,5,10,15,20,25,30,35,40,45,50,55 * * * * /home/pi/Public/Dev/Speed/cron.py
+#*/10 * * * * python3 /home/pi/Public/Dev/Speed/cron.py
+#*/10 * * * * python3 /home/pi/Public/Dev/Speed/Speedtest.py
+#*/10 * * * * python3 /home/pi/Public/Dev/Speed/Speedtest.py
+
+
+ARMAZENANDO SENHAS DE FORMA SEGURA
+
+https://pythonhelp.wordpress.com/2012/11/27/armazenando-senhas-de-forma-segura/
+
+Manipulando XML com Python
+
+https://raccoon.ninja/pt/dev-pt/manipulando-xml-com-python/
+
+ /home/pi/Public/Dev/Speed/
+
+ Notebook /home/leandro/Documents/Dev/Velocidade/
+ Raspberry /home/pi/Public/Dev/Speed/
+
+ Integração Python <-> Google Drive
+
+ https://www.linkedin.com/pulse/manipulando-planilhas-do-google-usando-python-renan-pessoa/?originalSubdomain=pt
+ 
+ Projeto do Metriful no github
+
+ https://github.com/metriful/sensor
+
+ 
